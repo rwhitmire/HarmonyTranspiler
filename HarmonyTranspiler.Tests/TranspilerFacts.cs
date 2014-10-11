@@ -60,5 +60,14 @@ namespace HarmonyTranspiler.Tests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void TranspileShouldSetModuleName()
+        {
+            var transpiler = new Transpiler("foo");
+
+            var result = transpiler.Transpile("console.log('hi');");
+            Assert.Contains("define(\"foo\",", result);
+        }
     }
 }

@@ -6,6 +6,18 @@ namespace HarmonyTranspiler
 {
     public class Transpiler
     {
+        private string _moduleName;
+
+        public Transpiler()
+        {
+            
+        }
+
+        public Transpiler(string moduleName)
+        {
+            _moduleName = moduleName;
+        }
+
         public string Transpile(string script)
         {
             var engine = new MsieJsEngine();
@@ -22,8 +34,18 @@ namespace HarmonyTranspiler
             var code = string.Format("var compiler = new module.exports.Compiler('{0}');", script);
             engine.Execute(code);
 
-            return engine.Evaluate<string>("compiler.toAMD();");
+            var compiledCode = engine.Evaluate<string>("compiler.toAMD();");
+            compiledCode = SetModuleName(compiledCode);
 
+            return compiledCode;
+        }
+
+        private string SetModuleName(string code)
+        {
+            if (string.IsNullOrWhiteSpace(_moduleName)) return code;
+
+            var newDefine = string.Format("define(\"{0}\", ", _moduleName);
+            return code.Replace("define(", newDefine);
         }
 
         private string EscapeNewLines(string script)

@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyTranspiler", "Harmon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyTranspiler.Tests", "HarmonyTranspiler.Tests\HarmonyTranspiler.Tests.csproj", "{3F217B85-3D1F-4144-8B6D-A6BFBD3DBDF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyTranspiler.MVC5", "HarmonyTranspiler.MVC5\HarmonyTranspiler.MVC5.csproj", "{882C4296-D93E-4F2C-8A61-9F95401890C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{996C5988-BA9B-46CF-BB34-AA569AFC7377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyTranspiler.MVC5.Tests", "HarmonyTranspiler.MVC5.Tests\HarmonyTranspiler.MVC5.Tests.csproj", "{C2013F28-F266-4214-85A0-CE0658AA9166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{3F217B85-3D1F-4144-8B6D-A6BFBD3DBDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F217B85-3D1F-4144-8B6D-A6BFBD3DBDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F217B85-3D1F-4144-8B6D-A6BFBD3DBDF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882C4296-D93E-4F2C-8A61-9F95401890C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882C4296-D93E-4F2C-8A61-9F95401890C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882C4296-D93E-4F2C-8A61-9F95401890C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882C4296-D93E-4F2C-8A61-9F95401890C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2013F28-F266-4214-85A0-CE0658AA9166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2013F28-F266-4214-85A0-CE0658AA9166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2013F28-F266-4214-85A0-CE0658AA9166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2013F28-F266-4214-85A0-CE0658AA9166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F217B85-3D1F-4144-8B6D-A6BFBD3DBDF0} = {996C5988-BA9B-46CF-BB34-AA569AFC7377}
+		{C2013F28-F266-4214-85A0-CE0658AA9166} = {996C5988-BA9B-46CF-BB34-AA569AFC7377}
 	EndGlobalSection
 EndGlobal
