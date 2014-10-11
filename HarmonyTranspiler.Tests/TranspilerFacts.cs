@@ -48,5 +48,17 @@ namespace HarmonyTranspiler.Tests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void TranspileShouldHandleMultipleLines()
+        {
+            var transpiler = new Transpiler();
+            var result = transpiler.Transpile(@"
+                var foo = 'foo';
+                var bar = 'bar';
+            ");
+
+            Assert.NotNull(result);
+        }
     }
 }

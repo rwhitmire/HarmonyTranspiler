@@ -16,12 +16,19 @@ namespace HarmonyTranspiler
 
             engine.Execute(transpiler);
 
-            script = EscapeSingleQuotes(script);
+            script = EscapeQuotes(script);
+            script = EscapeNewLines(script);
 
-            engine.Execute(string.Format("var compiler = new module.exports.Compiler('{0}');", script));//    "var compiler = new module.exports.Compiler('" + script + "');");
+            var code = string.Format("var compiler = new module.exports.Compiler('{0}');", script);
+            engine.Execute(code);
 
             return engine.Evaluate<string>("compiler.toAMD();");
 
+        }
+
+        private string EscapeNewLines(string script)
+        {
+            return script.Replace("\r\n", @"\n \ \r\n");
         }
 
         private static string GetTranspiler()
@@ -37,9 +44,11 @@ namespace HarmonyTranspiler
             }
         }
 
-        private static string EscapeSingleQuotes(string script)
+        private static string EscapeQuotes(string script)
         {
-            return script.Replace("'", "\\'");
+            return script
+                .Replace("'", "\\'")
+                .Replace("\"", "\\\"");
         }
     }
 }
