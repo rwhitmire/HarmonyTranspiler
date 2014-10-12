@@ -50,13 +50,19 @@ namespace HarmonyTranspiler.Tests
         }
 
         [Fact]
-        public void TranspileShouldHandleMultipleLines()
+        public void TranspileShouldHandleLineFeed()
         {
             var transpiler = new Transpiler();
-            var result = transpiler.Transpile(@"
-                var foo = 'foo';
-                var bar = 'bar';
-            ");
+            var result = transpiler.Transpile("var foo = 'foo';\nvar bar = 'bar';");
+
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void TranspileShouldHandleCarriageReturnLineFeed()
+        {
+            var transpiler = new Transpiler();
+            var result = transpiler.Transpile("var foo = 'foo';\r\nvar bar = 'bar';");
 
             Assert.NotNull(result);
         }

@@ -50,7 +50,11 @@ namespace HarmonyTranspiler
 
         private string EscapeNewLines(string script)
         {
-            return script.Replace("\r\n", @"\n \ \r\n");
+            // todo: replace with a regex
+            return script
+                .Replace("\r\n", "#~nl~#")
+                .Replace("\n", "#~nl~#")
+                .Replace("#~nl~#", @"\n \ \r\n");
         }
 
         private static string GetTranspiler()
